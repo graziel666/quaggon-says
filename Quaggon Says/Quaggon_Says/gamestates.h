@@ -35,27 +35,20 @@ void G_Game() {
   arduboy.display();
   
 
-  if (arduboy.justPressed(A_BUTTON)) {
-    gamestate = Over;
-  }
 }
 
 void G_Over() {
   arduboy.setCursor(0, 0);
   arduboy.print("Over");
 
-  if (arduboy.justPressed(A_BUTTON)) {
-    gamestate = Score;
-  }
+ 
 }
 
 void H_Score() {
   arduboy.setCursor(0, 0);
   arduboy.print("Score");
 
-  if (arduboy.justPressed(A_BUTTON)) {
-    gamestate = Tittle;
-  }
+  
 }
 
 void gameloop() {

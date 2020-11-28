@@ -21,8 +21,8 @@ uint8_t quaggonSize = 16;
 
 
 //x e y for half screen (not anymore)
-int screenX = WIDTH/3 - quaggonSize;
-int screenY = HEIGHT/2 - quaggonSize/2;
+int screenX = WIDTH/2 - quaggonSize;
+int screenY = HEIGHT/2 - quaggonSize;
 
 
 //secuencias

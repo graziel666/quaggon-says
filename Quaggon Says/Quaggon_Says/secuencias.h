@@ -20,6 +20,8 @@ void startGame(){
         if (quaggonFrame == 3) quaggonFrame = 0; //resets the waddle
         drawQuaggon();
         dispLives();
+        //arduboy.setCursor(0,0);
+        //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
         
         quaggonFrame = 16; //empty frame
@@ -36,6 +38,8 @@ void startGame(){
         if (quaggonFrame == 7) quaggonFrame = 4; //resets the waddle
         drawQuaggon();
         dispLives();
+        //arduboy.setCursor(0,0);
+        //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
         
         quaggonFrame = 16; //empty frame
@@ -52,6 +56,8 @@ void startGame(){
         if (quaggonFrame == 11) quaggonFrame = 8; //resets the waddle
         drawQuaggon();
         dispLives();
+        //arduboy.setCursor(0,0);
+        //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
         
         quaggonFrame = 16; //empty frame
@@ -68,6 +74,8 @@ void startGame(){
         if (quaggonFrame == 15) quaggonFrame = 12; //resets the waddle
         drawQuaggon();
         dispLives();
+        //arduboy.setCursor(0,0);
+        //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
         
         quaggonFrame = 16; //empty frame
@@ -80,11 +88,13 @@ void startGame(){
 
     for (int j = 3; j > 0; j --){
       arduboy.clear();
-      arduboy.setCursor(25,25);
-      arduboy.println("Quaggon says");
       arduboy.setTextSize(1);
-      arduboy.println("get Ready...");
-      arduboy.setCursor(60,35);
+      arduboy.setCursor(20,20);
+      arduboy.print("Quaggon says");
+      arduboy.setTextSize(1);
+      arduboy.setCursor(20,30);
+      arduboy.print("get Ready!");
+      arduboy.setCursor(63,40);
       arduboy.setTextSize(1);
       arduboy.print(j);
       arduboy.setTextSize(1);
@@ -94,10 +104,10 @@ void startGame(){
 
     arduboy.clear();
     arduboy.setTextSize(2);
-    arduboy.setCursor(WIDTH/2, HEIGHT/2);
+    arduboy.setCursor(40, 25);
     arduboy.print("COO!");
     arduboy.display();
-    arduboy.delayShort(500);
+    arduboy.delayShort(1000);
     arduboy.clear();
     arduboy.setTextSize(1);
     dispLives();

@@ -15,7 +15,7 @@ void drawQuaggon(){                       //simplify the animation
     quaggonFrame++;
   }
   
-  sprites.drawPlusMask(screenX, screenY, Quaggon, quaggonFrame);
+  sprites.drawPlusMask(screenX, 30, Quaggon, quaggonFrame);
 
   //arduboy.display();
   
@@ -25,19 +25,32 @@ void gameOver(){
 
   if (lives <= 0){
     arduboy.clear();
-    arduboy.setCursor(0, 0);
+    arduboy.setCursor(40, 10);
+    arduboy.setTextSize(2);
+    arduboy.print("FOO!");
+    arduboy.setTextSize(1);
+    arduboy.setCursor(0, HEIGHT/2);
     arduboy.print("Press A + B to Reset");
     arduboy.display();
     delay(1000);
+    nivelActual = 1;
+    movimientos = 2;
+    score = 0;
+    lives = 1;
+    gameReset = false;
    
   }
   
   else if (gameReset = true) {
     arduboy.clear();
-    arduboy.setCursor(0, 0);
+    arduboy.setCursor(0, HEIGHT/2);
     arduboy.print("Press A + B to Reset");
     arduboy.display();
     delay(1000);
+    nivelActual = 1;
+    movimientos = 2;
+    score = 0;
+    lives = 1;
     gameReset = false;
   }
   else {
@@ -53,20 +66,21 @@ void gameOver(){
 
   while (!(arduboy.pressed(A_BUTTON + B_BUTTON))) {
     //do nothing until A + B are pressed
-    delay(100);
+    arduboy.delayShort(100);
+    arduboy.clear();
   }
    gamestate = Tittle;
 }
 
 
 void dispLives(){
-  arduboy.setCursor(75, 0);
+  arduboy.setCursor(0, 5);
   arduboy.print("Round: ");
   arduboy.print(nivelActual);
   //arduboy.setCursor(75, 9);
   //arduboy.print("Lives: ");
   //arduboy.print(lives);
-  arduboy.setCursor(75, 55);
+  arduboy.setCursor(75, 5);
   arduboy.print("Score: ");
   arduboy.print(score);
   arduboy.display();
@@ -81,13 +95,16 @@ void btnImput(){
 
       if (arduboy.pressed(UP_BUTTON + B_BUTTON)){
         arduboy.clear();
-        arduboy.setCursor(WIDTH/2,HEIGHT/2);
-        arduboy.setTextSize(2);
-        arduboy.println("please wait");
+        arduboy.setCursor(35,20);
         arduboy.setTextSize(1);
-        arduboy.println("Quaggons resseting the game");
+        arduboy.print("please wait");
+        arduboy.setTextSize(1);
+        arduboy.setCursor(15,30);
+        arduboy.print("Quaggons resseting");
+        arduboy.setCursor(45,40);
+        arduboy.print("the game");
         arduboy.display();
-        arduboy.delayShort(500);
+        arduboy.delayShort(1000);
         gameReset = true;
         gameOver();
       }
@@ -103,7 +120,7 @@ void btnImput(){
         
         quaggonFrame = 16; //empty frame
         drawQuaggon();
-        if (secuenciaUser[i] == 0){
+        if (secuencia[i] == 0){
           i++;
           score++;
         }
@@ -126,7 +143,7 @@ void btnImput(){
         
         quaggonFrame = 16; //empty frame
         drawQuaggon();
-        if (secuenciaUser[i] == 1){
+        if (secuencia[i] == 1){
           i++;
           score++;
         }
@@ -149,7 +166,7 @@ void btnImput(){
         
         quaggonFrame = 16; //empty frame
         drawQuaggon();
-        if (secuenciaUser[i] == 2){
+        if (secuencia[i] == 2){
           i++;
           score++;
         }
@@ -172,7 +189,7 @@ void btnImput(){
         
         quaggonFrame = 16; //empty frame
         drawQuaggon();
-        if (secuenciaUser[i] == 3){
+        if (secuencia[i] == 3){
           i++;
           score++;
         }
@@ -190,5 +207,8 @@ void btnImput(){
       gameReset = true;
       nivelActual --;
       movimientos--;
+    } else {
+      dispLives();
+      arduboy.delayShort(1000);
     }
 }
