@@ -47,7 +47,7 @@ int lives = 1;
 int score = 0;
 
 #include "bitmaps.h"
-#include "screenThings.h"
+#include "gameFunctions.h"
 #include "secuencias.h"
 #include "gamestates.h"
 //#include <melodias.h>
