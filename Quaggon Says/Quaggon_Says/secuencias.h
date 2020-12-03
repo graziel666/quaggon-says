@@ -16,15 +16,15 @@ void startGame(){
       //down
       if (secuencia[i] == 0){
         //draws quaggon
-        quaggonFrame = random(0,4);  //set frame
-        if (quaggonFrame == 3) quaggonFrame = 0; //resets the waddle
+        quaggonFrame = random(0,3);  //set frame
+        if (quaggonFrame == 2) quaggonFrame = 0; //resets the waddle
         drawQuaggon();
         dispLives();
         //arduboy.setCursor(0,0);
         //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
         
-        quaggonFrame = 16; //empty frame
+        quaggonFrame = 14; //empty frame
         drawQuaggon();
         dispLives();
         arduboy.delayShort(300);
@@ -33,16 +33,16 @@ void startGame(){
       //up
       else if (secuencia[i] == 1){
         //draws quaggon
-        quaggonFrame = random(4,8);  //set frame
+        quaggonFrame = random(3,6);  //set frame
         
-        if (quaggonFrame == 7) quaggonFrame = 4; //resets the waddle
+        if (quaggonFrame == 5) quaggonFrame = 3; //resets the waddle
         drawQuaggon();
         dispLives();
         //arduboy.setCursor(0,0);
         //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
         
-        quaggonFrame = 16; //empty frame
+        quaggonFrame = 14; //empty frame
         drawQuaggon();
         dispLives();
         arduboy.delayShort(300);
@@ -51,16 +51,16 @@ void startGame(){
       //right
       else if (secuencia[i] == 2){
         //draws quaggon
-        quaggonFrame = random(8,12);  //set frame
+        quaggonFrame = random(6,10);  //set frame
         
-        if (quaggonFrame == 11) quaggonFrame = 8; //resets the waddle
+        if (quaggonFrame == 9) quaggonFrame = 6; //resets the waddle
         drawQuaggon();
         dispLives();
         //arduboy.setCursor(0,0);
         //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
         
-        quaggonFrame = 16; //empty frame
+        quaggonFrame = 14; //empty frame
         drawQuaggon();
         dispLives();
         arduboy.delayShort(300);
@@ -69,16 +69,16 @@ void startGame(){
       //left
       else if (secuencia[i] == 3){
         //draws quaggon
-        quaggonFrame = random(12,16);  //set frame
+        quaggonFrame = random(10,14);  //set frame
         
-        if (quaggonFrame == 15) quaggonFrame = 12; //resets the waddle
+        if (quaggonFrame == 13) quaggonFrame = 10; //resets the waddle
         drawQuaggon();
         dispLives();
         //arduboy.setCursor(0,0);
         //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
         
-        quaggonFrame = 16; //empty frame
+        quaggonFrame = 14; //empty frame
         drawQuaggon();
         dispLives();
         arduboy.delayShort(300);
