@@ -18,6 +18,8 @@ void setup(){
   arduboy.setFrameRate(60);
   arduboy.display();
   arduboy.clear();
+  arduboy.audio.begin();
+  
 }
 
 void loop() {
@@ -25,6 +27,7 @@ void loop() {
     return;
   }
   arduboy.pollButtons();
+  
 
   arduboy.clear();  
   gameloop();

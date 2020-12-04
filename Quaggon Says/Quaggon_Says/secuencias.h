@@ -1,4 +1,4 @@
- #pragma once
+#pragma once
 
 #include "Globals.h"
 
@@ -16,10 +16,15 @@ void startGame(){
       //down
       if (secuencia[i] == 0){
         //draws quaggon
+              sound.tone(NOTE_C3,75);
+        
+        
+    
         quaggonFrame = random(0,3);  //set frame
         if (quaggonFrame == 2) quaggonFrame = 0; //resets the waddle
         drawQuaggon();
         dispLives();
+        
         //arduboy.setCursor(0,0);
         //arduboy.print(secuencia[i]);
         arduboy.delayShort(2000);
@@ -33,6 +38,10 @@ void startGame(){
       //up
       else if (secuencia[i] == 1){
         //draws quaggon
+              sound.tone(NOTE_D3,75);
+        
+        
+        
         quaggonFrame = random(3,6);  //set frame
         
         if (quaggonFrame == 5) quaggonFrame = 3; //resets the waddle
@@ -51,6 +60,10 @@ void startGame(){
       //right
       else if (secuencia[i] == 2){
         //draws quaggon
+              sound.tone(NOTE_E3,75);
+        
+        
+        
         quaggonFrame = random(6,10);  //set frame
         
         if (quaggonFrame == 9) quaggonFrame = 6; //resets the waddle
@@ -69,6 +82,10 @@ void startGame(){
       //left
       else if (secuencia[i] == 3){
         //draws quaggon
+              sound.tone(NOTE_F3,75);
+        
+        
+        
         quaggonFrame = random(10,14);  //set frame
         
         if (quaggonFrame == 13) quaggonFrame = 10; //resets the waddle

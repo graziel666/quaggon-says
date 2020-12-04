@@ -5,19 +5,35 @@
 
 
 
+void drawQuaggon();
 
 
+void updateQuaggonDance()
+{
+  // tiempo actual
+  //unsigned long currentTime = millis();
+  firstQuaggonDanceFrame = 0;
+  lastQuaggonDanceFrame = 13;
+  
+  if(currentTime >= targetTime){
+    targetTime = (currentTime + quaggonDelayTime);
+    
+    if(quaggonFrame < lastQuaggonDanceFrame)
+      ++quaggonFrame; // quaggonFrame = quaggonFrame + 1
+    else
+      quaggonFrame = firstQuaggonDanceFrame;
+  }
+}
 
 
 
 void drawQuaggon(){                       //simplify the animation
-  if (quaggonFrame <= 13) {
-    quaggonFrame++;
-  }
-  
+  //if (quaggonFrame <= 13) {
+  //  quaggonFrame++;
+  //}
+  updateQuaggonDance();
   sprites.drawPlusMask(screenX, 30, Quaggon, quaggonFrame);
 
-  //arduboy.display();
   
 }
 
@@ -41,7 +57,7 @@ void gameOver(){
    
   }
   
-  else if (gameReset = true) {
+  else if (gameReset == true) {
     arduboy.clear();
     arduboy.setCursor(0, HEIGHT/2);
     arduboy.print("Press A + B to Reset");
@@ -55,16 +71,17 @@ void gameOver(){
   }
   else {
     arduboy.clear();
-    arduboy.setCursor(WIDTH/2, 0);
+    arduboy.setCursor(40, 10);
     arduboy.setTextSize(2);
     arduboy.println("Coo!");
     arduboy.setTextSize(1);
+    arduboy.setCursor(0, HEIGHT/2);
     arduboy.println("You beat the game");
     arduboy.println("Press A & B to begin");
     arduboy.display();
   }
 
-  while (!(arduboy.pressed(A_BUTTON + B_BUTTON))) {
+  while (!(arduboy.pressed(A_BUTTON | B_BUTTON))) {
     //do nothing until A + B are pressed
     arduboy.delayShort(100);
     arduboy.clear();
@@ -93,7 +110,7 @@ void btnImput(){
     do {
       arduboy.pollButtons();
 
-      if (arduboy.pressed(UP_BUTTON + B_BUTTON)){
+      if (arduboy.pressed(UP_BUTTON | B_BUTTON)){
         arduboy.clear();
         arduboy.setCursor(35,20);
         arduboy.setTextSize(1);
@@ -111,6 +128,10 @@ void btnImput(){
 
        if (arduboy.justReleased(DOWN_BUTTON)){
         //draws quaggon
+                          sound.tone(NOTE_C3,75);
+        
+        
+        
         quaggonFrame = random(0,3);  //set frame
         
         if (quaggonFrame == 2) quaggonFrame = 0; //resets the waddle
@@ -134,6 +155,10 @@ void btnImput(){
 
       if (arduboy.justReleased(UP_BUTTON)){
         //draws quaggon
+                        sound.tone(NOTE_D3,75);
+        
+        
+        
         quaggonFrame = random(3,6);  //set frame
         
         if (quaggonFrame == 5) quaggonFrame = 3; //resets the waddle
@@ -157,6 +182,10 @@ void btnImput(){
 
       if (arduboy.justReleased(RIGHT_BUTTON)){
         //draws quaggon
+                        sound.tone(NOTE_E3,75);
+        
+        
+        
         quaggonFrame = random(6,10);  //set frame
         
         if (quaggonFrame == 9) quaggonFrame = 6; //resets the waddle
@@ -180,6 +209,10 @@ void btnImput(){
 
       if (arduboy.justReleased(LEFT_BUTTON)){
         //draws quaggon
+                        sound.tone(NOTE_F3,75);
+        
+        
+        
         quaggonFrame = random(10,14);  //set frame
         
         if (quaggonFrame == 13) quaggonFrame = 10; //resets the waddle
@@ -214,7 +247,7 @@ void btnImput(){
       arduboy.print("COO!");
       arduboy.setTextSize(1);
       arduboy.setCursor(25,40);
-      arduboy.print("God JoOoOoB");
+      arduboy.print("Good JoOoOoB");
       arduboy.display();
       //dispLives();
       arduboy.delayShort(1500);

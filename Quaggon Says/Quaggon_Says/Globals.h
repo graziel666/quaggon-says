@@ -1,9 +1,14 @@
 #pragma once
 
 #include <Arduboy2.h>
+#include <ArduboyTones.h>
+
+
+
 
 Arduboy2 arduboy;
 Sprites sprites;
+ArduboyTones sound(arduboy.audio.enabled);
 
 //gamestates
 #define Tittle 0
@@ -14,10 +19,28 @@ Sprites sprites;
 int gamestate = Tittle;
 
 
-//screenThings
+
+
+//gameFunctions
+
+unsigned long currentTime = millis();
+unsigned long endTime = currentTime;
+
+// tiempo de retardo
+constexpr unsigned long delayTime = 2000; // 250 = 1/4 second
+constexpr unsigned long quaggonDelayTime = 100;
+
+
+// tiempo objetivo
+unsigned long targetTime = 0;
+
 //frame
+uint8_t firstQuaggonDanceFrame = 0;
+uint8_t lastQuaggonDanceFrame = 0;
+
 uint8_t quaggonFrame = 0;
 uint8_t quaggonSize = 16;
+uint8_t emptyQuaggon = 14;
 
 
 //x e y for half screen (not anymore)

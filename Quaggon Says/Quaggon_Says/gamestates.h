@@ -10,8 +10,9 @@ void G_Tittle() {
   arduboy.setCursor(0, 0);
   //arduboy.print("Tittle");
   sprites.drawOverwrite(0, 0, mainSays, 0);
+  
 
-  if (arduboy.pressed(A_BUTTON + B_BUTTON)) {
+  if (arduboy.pressed(A_BUTTON | B_BUTTON)) {
 
     nivelActual = 1;
     movimientos = 2;
